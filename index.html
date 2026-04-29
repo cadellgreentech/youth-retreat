@@ -1,0 +1,1819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>National Youth Retreat 2025 · God's Gifted Youths</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800;900&family=Fraunces:ital,wght@1,300;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0A0E1C;
+    --bg-2: #0F1428;
+    --bg-3: #161C36;
+    --ink: #F4EAD0;
+    --ink-soft: #B8AC8E;
+    --gold: #D4A24F;
+    --gold-bright: #E8C875;
+    --coral: #E07845;
+    --glow: rgba(212, 162, 79, 0.15);
+    --line: rgba(244, 234, 208, 0.12);
+    --line-soft: rgba(244, 234, 208, 0.05);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Archivo', sans-serif;
+    font-weight: 400;
+    line-height: 1.55;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Atmospheric background glow */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 0%, rgba(212, 162, 79, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 50%, rgba(224, 120, 69, 0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 100%, rgba(99, 64, 138, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+  }
+
+  ::selection { background: var(--gold); color: var(--bg); }
+
+  /* Common typography */
+  .display {
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.005em;
+    line-height: 0.92;
+    text-transform: uppercase;
+  }
+
+  .label {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .italic-accent {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  /* ============ NAV ============ */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.25rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10, 14, 28, 0.85);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  nav .mark {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.15rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  nav .mark span { color: var(--gold); }
+  nav ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  nav ul a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: color 0.3s;
+    position: relative;
+  }
+  nav ul a:hover { color: var(--gold); }
+  .nav-cta {
+    padding: 0.65rem 1.25rem;
+    border: 1px solid var(--gold);
+    color: var(--gold) !important;
+    transition: all 0.3s;
+  }
+  .nav-cta:hover {
+    background: var(--gold);
+    color: var(--bg) !important;
+  }
+  .nav-toggle { display: none; }
+
+  /* ============ HERO ============ */
+  .hero {
+    min-height: 100vh;
+    padding: 6rem 2.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-eyebrow {
+    margin-bottom: 1.5rem;
+  }
+  .hero-event-name {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 2.5rem;
+  }
+  .hero-event-name span { color: var(--gold); }
+
+  .hero-date {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(3.5rem, 14vw, 13rem);
+    line-height: 0.85;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+    text-transform: uppercase;
+    text-shadow: 0 0 60px rgba(212, 162, 79, 0.15);
+    position: relative;
+  }
+  .hero-date .slash {
+    color: var(--gold);
+    margin: 0 0.3rem;
+  }
+  .hero-date-marquee {
+    overflow: hidden;
+    width: 100%;
+    margin: 1rem 0 2rem;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 0.85rem 0;
+    background: rgba(212, 162, 79, 0.04);
+  }
+  .marquee-track {
+    display: inline-flex;
+    white-space: nowrap;
+    animation: marquee 28s linear infinite;
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .marquee-track span {
+    padding: 0 1.5rem;
+    color: var(--ink);
+  }
+  .marquee-track .accent { color: var(--gold); }
+  .marquee-track .star { color: var(--coral); padding: 0 0.5rem; }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .hero-theme {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(1.4rem, 3vw, 2.5rem);
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--ink);
+    max-width: 24ch;
+    margin: 1rem auto 0.5rem;
+  }
+  .hero-theme em {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--gold);
+    text-transform: none;
+    letter-spacing: -0.01em;
+  }
+  .hero-location {
+    font-size: 0.85rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 1rem;
+    font-weight: 500;
+  }
+  .hero-location span { color: var(--gold); margin: 0 0.6rem; }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 1.1rem 2rem;
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 700;
+    border: 1px solid var(--gold);
+    transition: all 0.4s ease;
+    cursor: pointer;
+    background: var(--gold);
+    color: var(--bg);
+  }
+  .btn:hover {
+    background: var(--coral);
+    border-color: var(--coral);
+    color: var(--ink);
+    transform: translateY(-2px);
+  }
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink);
+    border-color: var(--line);
+  }
+  .btn-ghost:hover {
+    background: var(--ink);
+    color: var(--bg);
+    border-color: var(--ink);
+  }
+
+  /* ============ SECTION BASE ============ */
+  section {
+    padding: 7rem 2.5rem;
+    position: relative;
+    z-index: 2;
+  }
+  .section-eyebrow {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  .section-heading {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 5.5rem);
+    line-height: 0.95;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 3rem;
+    letter-spacing: 0.005em;
+  }
+  .section-heading em {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--gold);
+    text-transform: none;
+    letter-spacing: -0.01em;
+  }
+
+  /* ============ WELCOME ============ */
+  .welcome {
+    text-align: center;
+    padding: 8rem 2.5rem 6rem;
+  }
+  .welcome-bang {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(4rem, 14vw, 11rem);
+    line-height: 0.9;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 2.5rem;
+    letter-spacing: 0;
+  }
+  .welcome-bang span { color: var(--gold); }
+  .welcome-body {
+    max-width: 720px;
+    margin: 0 auto;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    font-weight: 400;
+  }
+  .welcome-body strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
+  .welcome-scripture {
+    margin-top: 3rem;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    color: var(--gold-bright);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .welcome-scripture cite {
+    display: block;
+    margin-top: 0.8rem;
+    font-family: 'Archivo', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    color: var(--coral);
+    text-transform: uppercase;
+  }
+
+  /* ============ THREE-PART (Protected/Nurtured/Released) ============ */
+  .triad {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .triad-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .triad-block {
+    padding: 4rem 2.5rem;
+    border-right: 1px solid var(--line);
+    text-align: center;
+    position: relative;
+    transition: background 0.4s ease;
+  }
+  .triad-block:last-child { border-right: none; }
+  .triad-block:hover { background: rgba(212, 162, 79, 0.04); }
+  .triad-img {
+    aspect-ratio: 4/3;
+    margin-bottom: 2rem;
+    background: linear-gradient(160deg, var(--bg-3) 0%, var(--bg-2) 100%);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .triad-img::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(212, 162, 79, 0.25) 0%, transparent 50%),
+      radial-gradient(circle at 70% 70%, rgba(224, 120, 69, 0.2) 0%, transparent 50%);
+  }
+  .triad-img-icon {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    opacity: 0.7;
+  }
+  .triad-img-icon svg { width: 30%; height: 30%; }
+  .triad-block h3 {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.005em;
+  }
+  .triad-block h3 .dot { color: var(--gold); }
+  .triad-block p {
+    font-size: 0.98rem;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    max-width: 36ch;
+    margin: 0 auto;
+  }
+  .triad-block strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* ============ SPEAKERS - large name marquees ============ */
+  .speakers {
+    padding: 8rem 0 4rem;
+  }
+  .speakers-intro {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 5rem;
+    padding: 0 2rem;
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    line-height: 1.65;
+  }
+  .speaker-row {
+    border-top: 1px solid var(--line);
+    padding: 3.5rem 0;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.4s ease;
+  }
+  .speaker-row:hover { background: rgba(212, 162, 79, 0.03); }
+  .speaker-row:last-child { border-bottom: 1px solid var(--line); }
+  .speaker-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .speaker-portrait {
+    aspect-ratio: 1;
+    background: linear-gradient(140deg, var(--bg-3) 0%, var(--bg-2) 100%);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .speaker-portrait::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 25%, rgba(212, 162, 79, 0.35) 0%, transparent 60%);
+  }
+  .speaker-portrait .initials {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Anton', sans-serif;
+    font-size: 6rem;
+    color: var(--gold);
+    text-shadow: 0 0 40px rgba(212, 162, 79, 0.4);
+  }
+  .speaker-meta {
+    position: absolute;
+    top: 1rem; left: 1rem;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-bright);
+    background: rgba(10, 14, 28, 0.7);
+    padding: 0.3rem 0.6rem;
+    backdrop-filter: blur(8px);
+  }
+  .speaker-info {
+    overflow: hidden;
+  }
+  .speaker-name-mega {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(2.5rem, 7vw, 6rem);
+    line-height: 0.92;
+    text-transform: uppercase;
+    color: var(--ink);
+    letter-spacing: 0.005em;
+    margin-bottom: 0.3rem;
+    white-space: nowrap;
+  }
+  .speaker-name-shadow {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(2.5rem, 7vw, 6rem);
+    line-height: 0.92;
+    text-transform: uppercase;
+    letter-spacing: 0.005em;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(212, 162, 79, 0.4);
+    margin-top: -0.2rem;
+    white-space: nowrap;
+  }
+  .speaker-role {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--coral);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .speaker-bio {
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    max-width: 60ch;
+  }
+
+  /* ============ SCHEDULE ============ */
+  .schedule-section {
+    padding: 8rem 2.5rem;
+    background: var(--bg-2);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .schedule-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .day-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+    margin-bottom: 4rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .day-tab {
+    padding: 1.25rem 2rem;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    font-family: 'Anton', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: -1px;
+  }
+  .day-tab.active {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+  .day-tab:hover { color: var(--ink); }
+  .day-tab.active:hover { color: var(--gold); }
+
+  .day-panel { display: none; animation: fadeIn 0.5s ease; }
+  .day-panel.active { display: block; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .schedule-row {
+    display: grid;
+    grid-template-columns: 180px 1fr 1.1fr;
+    gap: 2.5rem;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--line-soft);
+    transition: padding 0.3s;
+  }
+  .schedule-row:hover { padding-left: 1rem; background: rgba(212, 162, 79, 0.03); }
+  .schedule-row:last-child { border-bottom: none; }
+  .schedule-time {
+    font-family: 'Anton', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    color: var(--gold);
+    text-transform: uppercase;
+    padding-top: 0.3rem;
+  }
+  .schedule-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.5rem;
+    color: var(--ink);
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+  }
+  .schedule-title em {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+    display: block;
+    margin-top: 0.4rem;
+    text-transform: none;
+    letter-spacing: -0.01em;
+  }
+  .schedule-desc {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+  .schedule-desc strong {
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* ============ HOUSES ============ */
+  .houses-section { padding: 8rem 2.5rem; }
+  .houses-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1400px;
+    margin: 4rem auto 0;
+  }
+  .house-card {
+    border: 1px solid var(--line);
+    padding: 3rem 2rem;
+    text-align: center;
+    background: var(--bg-2);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .house-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(212, 162, 79, 0.12) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .house-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+  .house-card:hover::before { opacity: 1; }
+  .house-card > * { position: relative; z-index: 1; }
+  .house-icon {
+    width: 60px; height: 60px;
+    margin: 0 auto 1.75rem;
+    color: var(--gold);
+  }
+  .house-num {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--coral);
+    margin-bottom: 0.7rem;
+  }
+  .house-name {
+    font-family: 'Anton', sans-serif;
+    font-size: 2rem;
+    line-height: 1.05;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 1rem;
+    letter-spacing: 0.005em;
+  }
+  .house-name span { color: var(--gold); display: block; }
+  .house-presentation {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+  .house-presentation strong { color: var(--gold-bright); font-weight: 600; }
+  .house-captains {
+    border-top: 1px solid var(--line);
+    padding-top: 1.25rem;
+    font-family: 'Anton', sans-serif;
+    font-size: 1.15rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink);
+  }
+  .house-captains-label {
+    display: block;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    font-size: 0.62rem;
+    letter-spacing: 0.25em;
+    color: var(--coral);
+    margin-bottom: 0.4rem;
+  }
+
+  /* ============ PROJECTS ============ */
+  .projects-section { padding: 8rem 2.5rem; background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .projects-intro {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 4rem;
+    font-size: 1.02rem;
+    color: var(--ink-soft);
+    line-height: 1.65;
+  }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1px;
+    max-width: 1400px;
+    margin: 0 auto;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .project-card {
+    padding: 2rem;
+    background: var(--bg-2);
+    transition: background 0.3s;
+  }
+  .project-card:hover { background: var(--bg-3); }
+  .project-num {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .project-name {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 0.7rem;
+    line-height: 1.1;
+    letter-spacing: 0.01em;
+  }
+  .project-desc {
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  /* ============ TESTIMONIALS ============ */
+  .testimonials-section { padding: 8rem 2.5rem; }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 4rem auto 0;
+  }
+  .testimonial {
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    padding: 3rem 2.5rem;
+    position: relative;
+  }
+  .testimonial::before {
+    content: '"';
+    position: absolute;
+    top: -10px; left: 1.5rem;
+    font-family: 'Anton', sans-serif;
+    font-size: 7rem;
+    line-height: 1;
+    color: var(--gold);
+    opacity: 0.6;
+  }
+  .testimonial p {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--ink);
+    margin-bottom: 1.75rem;
+    margin-top: 1.5rem;
+  }
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-top: 1px solid var(--line);
+    padding-top: 1.25rem;
+  }
+  .testimonial-avatar {
+    width: 44px; height: 44px;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--coral) 100%);
+    color: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Anton', sans-serif;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .testimonial-name {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.15rem;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .testimonial-meta {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 0.25rem;
+  }
+
+  /* ============ SIGNUP ============ */
+  .signup-section {
+    padding: 8rem 2.5rem;
+    background: var(--bg-2);
+    border-top: 1px solid var(--line);
+  }
+  .signup-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 4rem;
+    max-width: 1300px;
+    margin: 0 auto;
+    align-items: start;
+  }
+  .signup-info p {
+    font-size: 1rem;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    max-width: 45ch;
+  }
+  .info-list {
+    list-style: none;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+  }
+  .info-list li {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--line-soft);
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+  }
+  .info-list li:last-child { border-bottom: none; }
+  .info-list strong {
+    flex-shrink: 0;
+    width: 110px;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding-top: 3px;
+  }
+  .form-wrap {
+    background: var(--bg-3);
+    border: 1px solid var(--line);
+    overflow: hidden;
+  }
+  .form-frame-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .form-frame-label {
+    font-family: 'Anton', sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .form-frame-meta {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 500;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .form-iframe-container {
+    background: #fff;
+    width: 100%;
+    overflow: hidden;
+  }
+  .form-iframe-container iframe {
+    display: block;
+    width: 100%;
+    border: none;
+    min-height: 1795px;
+  }
+
+  /* ============ MAILING LIST ============ */
+  .mailing-section {
+    padding: 8rem 2.5rem;
+    text-align: center;
+    background:
+      radial-gradient(ellipse at 50% 50%, rgba(212, 162, 79, 0.08) 0%, transparent 60%),
+      var(--bg);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .mailing-section h3 {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(2rem, 5vw, 4rem);
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 1rem;
+    letter-spacing: 0.01em;
+  }
+  .mailing-section h3 em {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--gold);
+    text-transform: none;
+  }
+  .mailing-section > p {
+    color: var(--ink-soft);
+    margin-bottom: 2.5rem;
+    font-size: 1.02rem;
+  }
+  .mailing-form {
+    display: flex;
+    gap: 0.75rem;
+    max-width: 540px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .mailing-form input {
+    flex: 1;
+    min-width: 220px;
+    padding: 1rem 1.25rem;
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    color: var(--ink);
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: border-color 0.3s;
+  }
+  .mailing-form input:focus {
+    outline: none;
+    border-color: var(--gold);
+  }
+  .mailing-form input::placeholder { color: var(--ink-soft); }
+  .mailing-form button {
+    padding: 1rem 2rem;
+    background: var(--gold);
+    color: var(--bg);
+    border: none;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .mailing-form button:hover {
+    background: var(--coral);
+    color: var(--ink);
+  }
+  .mailing-success {
+    margin-top: 1.5rem;
+    color: var(--gold);
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    display: none;
+  }
+  .mailing-success.show { display: block; }
+  .mailing-privacy {
+    margin-top: 1rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 600;
+  }
+
+  /* ============ LEADERSHIP ============ */
+  .leadership-section { padding: 8rem 2.5rem; }
+  .leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 1px;
+    max-width: 1300px;
+    margin: 4rem auto 0;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .leader {
+    background: var(--bg);
+    padding: 1.75rem 1.25rem;
+    text-align: center;
+    transition: background 0.3s;
+  }
+  .leader:hover { background: var(--bg-2); }
+  .leader-avatar {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--coral));
+    color: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Anton', sans-serif;
+    font-size: 1.2rem;
+    margin: 0 auto 1rem;
+  }
+  .leader-name {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+    line-height: 1.15;
+    letter-spacing: 0.02em;
+  }
+  .leader-role {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    font-size: 0.6rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* ============ CONTACT/FOOTER ============ */
+  footer {
+    background: #050813;
+    color: var(--ink);
+    padding: 5rem 2.5rem 2.5rem;
+    border-top: 1px solid var(--line);
+  }
+  .contact-mark {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  .contact-mark h2 {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(3rem, 9vw, 8rem);
+    text-transform: uppercase;
+    color: var(--ink);
+    line-height: 0.9;
+    letter-spacing: 0.005em;
+  }
+  .contact-mark h2 em {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--gold);
+    text-transform: none;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    max-width: 1300px;
+    margin: 0 auto 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .contact-block h5 {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.25rem;
+  }
+  .contact-block p, .contact-block a {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s;
+  }
+  .contact-block a:hover { color: var(--gold); }
+  .contact-tagline {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.5rem;
+    line-height: 1.3;
+    color: var(--ink);
+  }
+  .footer-bottom {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 500;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .footer-bottom span { color: var(--gold); }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 968px) {
+    nav { padding: 1rem 1.25rem; }
+    nav ul { display: none; }
+    nav ul.open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%; left: 0; right: 0;
+      background: var(--bg);
+      padding: 1.5rem;
+      gap: 1.25rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-toggle {
+      display: block;
+      background: none;
+      border: 1px solid var(--line);
+      padding: 0.5rem 0.85rem;
+      cursor: pointer;
+      font-family: 'Archivo', sans-serif;
+      font-weight: 700;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    section { padding: 5rem 1.25rem; }
+    .hero { padding: 6rem 1.25rem 3rem; }
+    .triad-grid { grid-template-columns: 1fr; }
+    .triad-block { border-right: none; border-bottom: 1px solid var(--line); padding: 3rem 1.5rem; }
+    .triad-block:last-child { border-bottom: none; }
+    .speaker-content { grid-template-columns: 1fr; gap: 2rem; }
+    .speaker-portrait { max-width: 240px; margin: 0 auto; }
+    .speaker-name-mega, .speaker-name-shadow {
+      font-size: clamp(2.25rem, 9vw, 3.5rem);
+      white-space: normal;
+      text-align: center;
+    }
+    .speaker-role, .speaker-bio { text-align: center; }
+    .speaker-bio { margin: 0 auto; }
+    .signup-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .houses-grid { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .schedule-row { grid-template-columns: 110px 1fr; gap: 1rem; }
+    .schedule-desc { grid-column: 1 / -1; padding-left: 110px; }
+    .form-frame-header { padding: 0.85rem 1rem; }
+    .form-frame-meta { display: none; }
+    .contact-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+  }
+  @media (max-width: 560px) {
+    .contact-grid { grid-template-columns: 1fr; }
+    .schedule-desc { padding-left: 0; padding-top: 0.5rem; }
+    .schedule-row { grid-template-columns: 1fr; gap: 0.5rem; }
+    .day-tab { padding: 1rem 1rem; font-size: 0.85rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="mark">N<span>·</span>Y<span>·</span>R · 2025</div>
+  <button class="nav-toggle" onclick="document.querySelector('nav ul').classList.toggle('open')">Menu</button>
+  <ul>
+    <li><a href="#welcome">About</a></li>
+    <li><a href="#speakers">Speakers</a></li>
+    <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#houses">Houses</a></li>
+    <li><a href="#projects">Ministry</a></li>
+    <li><a href="#signup" class="nav-cta">Register</a></li>
+  </ul>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-eyebrow"><span class="label">National Youth Retreat</span></div>
+  <div class="hero-event-name">N · T · C · O · G · J A M A I C A · <span>·</span> · Y A M · <span>·</span> · 2 0 2 5</div>
+
+  <h1 class="hero-date">AUG <span class="slash">/</span> 7–10</h1>
+
+  <div class="hero-date-marquee">
+    <div class="marquee-track">
+      <span>God's Gifted Youths</span><span class="star">✦</span>
+      <span class="accent">Growing & Going</span><span class="star">✦</span>
+      <span>With the Gospel</span><span class="star">✦</span>
+      <span class="accent">Golden Grove Campsite</span><span class="star">✦</span>
+      <span>National Youth Retreat 2025</span><span class="star">✦</span>
+      <span class="accent">Worship</span><span class="star">✦</span>
+      <span>Word</span><span class="star">✦</span>
+      <span class="accent">Fellowship</span><span class="star">✦</span>
+      <span>God's Gifted Youths</span><span class="star">✦</span>
+      <span class="accent">Growing & Going</span><span class="star">✦</span>
+      <span>With the Gospel</span><span class="star">✦</span>
+      <span class="accent">Golden Grove Campsite</span><span class="star">✦</span>
+      <span>National Youth Retreat 2025</span><span class="star">✦</span>
+      <span class="accent">Worship</span><span class="star">✦</span>
+      <span>Word</span><span class="star">✦</span>
+      <span class="accent">Fellowship</span><span class="star">✦</span>
+    </div>
+  </div>
+
+  <h2 class="hero-theme">God's Gifted Youths <em>Growing</em> & Going with the <em>Gospel</em></h2>
+  <p class="hero-location">Golden Grove Campsite <span>·</span> Jamaica <span>·</span> Thursday – Sunday</p>
+
+  <div class="hero-actions">
+    <a href="#signup" class="btn">Register Now →</a>
+    <a href="#welcome" class="btn btn-ghost">Learn More</a>
+  </div>
+</header>
+
+<!-- ============ WELCOME ============ -->
+<section class="welcome" id="welcome">
+  <h2 class="welcome-bang">WELCOME<span>!</span></h2>
+  <p class="welcome-body">
+    The <strong>National Youth Retreat</strong> is dedicated to bringing the young adults of the New Testament Church of God, Jamaica together for four days of worship, prayer, fellowship, and the preached Word. This transformative retreat is a national gathering where young believers can deepen their faith, experience spiritual renewal, and connect with a community of <strong>gifted youths</strong> growing and going with the gospel.
+  </p>
+  <p class="welcome-scripture">
+    "Let no one look down on you because you are young, but set an example for the believers in your speech, conduct, love, faithfulness, and purity."
+    <cite>1 Timothy 4:12</cite>
+  </p>
+</section>
+
+<!-- ============ TRIAD: PROTECTED. NURTURED. RELEASED. ============ -->
+<section class="triad">
+  <div class="triad-grid">
+    <div class="triad-block">
+      <div class="triad-img">
+        <div class="triad-img-icon">
+          <svg viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M25 5 L42 13 L42 28 Q42 40 25 47 Q8 40 8 28 L8 13 Z"/>
+            <path d="M18 25 L23 30 L33 19" stroke-width="2"/>
+          </svg>
+        </div>
+      </div>
+      <h3>PROTECTED<span class="dot">.</span></h3>
+      <p>God shields what is His until it is ready. Like Joash hidden in the temple, the season of <strong>hiding is not punishment — it is protection</strong>. The gift cannot be released before it is ready.</p>
+    </div>
+    <div class="triad-block">
+      <div class="triad-img">
+        <div class="triad-img-icon">
+          <svg viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M25 8 Q15 8 15 20 Q15 25 20 28 L20 38 L30 38 L30 28 Q35 25 35 20 Q35 8 25 8 Z"/>
+            <path d="M22 42 L28 42 M21 38 L29 38"/>
+          </svg>
+        </div>
+      </div>
+      <h3>NURTURED<span class="dot">.</span></h3>
+      <p>Even a king must be taught how to reign. Even a prophet must learn to hear. <strong>Growth is necessary. Development is non-negotiable.</strong> God plants His gifted in fertile soil so they can flourish.</p>
+    </div>
+    <div class="triad-block">
+      <div class="triad-img">
+        <div class="triad-img-icon">
+          <svg viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="25" cy="25" r="6"/>
+            <path d="M25 5 L25 12 M25 38 L25 45 M5 25 L12 25 M38 25 L45 25 M11 11 L16 16 M34 34 L39 39 M11 39 L16 34 M34 16 L39 11"/>
+          </svg>
+        </div>
+      </div>
+      <h3>RELEASED<span class="dot">.</span></h3>
+      <p>Then comes the moment we long for. <strong>God appoints the moment</strong> when everything aligns. He clears the path so the gift nurtured in silence can speak, move, and transform lives — proclaiming Christ.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SPEAKERS ============ -->
+<section class="speakers" id="speakers">
+  <div style="text-align: center; padding: 0 2rem;">
+    <div class="section-eyebrow"><span class="label">The Voices</span></div>
+    <h2 class="section-heading">Guest <em>Speakers</em></h2>
+  </div>
+  <p class="speakers-intro">Pastors and teachers who have given their lives to the ministry of the gospel — bringing the Word into the heart of the retreat.</p>
+
+  <div class="speaker-row">
+    <div class="speaker-content">
+      <div class="speaker-portrait">
+        <div class="speaker-meta">Day 1 · First Flame</div>
+        <div class="initials">JT</div>
+      </div>
+      <div class="speaker-info">
+        <h3 class="speaker-name-mega">Joshua Glaboon</h3>
+        <h3 class="speaker-name-shadow">Thomas</h3>
+        <div class="speaker-role">Opening Night Speaker</div>
+        <p class="speaker-bio">From Monrovia, Liberia. Member of Christ Redemption World Outreach Ministries International, now in his third year at Bethel Bible College of the Caribbean. Believes that effective prayer and ardent study of God's Word is the foundation for advancing the Kingdom on earth.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="speaker-row">
+    <div class="speaker-content">
+      <div class="speaker-portrait">
+        <div class="speaker-meta">Day 2 · Evening Service</div>
+        <div class="initials">SI</div>
+      </div>
+      <div class="speaker-info">
+        <h3 class="speaker-name-mega">Stanley</h3>
+        <h3 class="speaker-name-shadow">Ivey</h3>
+        <div class="speaker-role">Bishop · Friday Evening</div>
+        <p class="speaker-bio">Ordained Bishop, District Overseer of the Mineral Heights District, and graduate of Jamaica Theological Seminary and Pentecostal Theological Seminary (M.A. in Church Ministries). Author of <em>The Believer's Spiritual Development Manual</em>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="speaker-row">
+    <div class="speaker-content">
+      <div class="speaker-portrait">
+        <div class="speaker-meta">Day 2 · Financial Seminar</div>
+        <div class="initials">JS</div>
+      </div>
+      <div class="speaker-info">
+        <h3 class="speaker-name-mega">James R.</h3>
+        <h3 class="speaker-name-shadow">Small</h3>
+        <div class="speaker-role">Bishop · Friday Morning Seminar</div>
+        <p class="speaker-bio">District Overseer of May Pen, Senior Pastor of May Pen Church, and President of the BBCC Alumni Association. M.Div. with Honors from Pentecostal Theological Seminary; currently a D.Min. student. Over 34 years in active ministry.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="speaker-row">
+    <div class="speaker-content">
+      <div class="speaker-portrait">
+        <div class="speaker-meta">Liaison Minister</div>
+        <div class="initials">ER</div>
+      </div>
+      <div class="speaker-info">
+        <h3 class="speaker-name-mega">Everton</h3>
+        <h3 class="speaker-name-shadow">Robinson</h3>
+        <div class="speaker-role">Bishop · Liaison Minister</div>
+        <p class="speaker-bio">From Salt Spring, St. James. District Overseer of the Negril District, Pastor of Negril NTCOG. Six years on the National Youth and Discipleship Board. Recently elected to the National Executive Council of the NTCOG.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCHEDULE ============ -->
+<section class="schedule-section" id="schedule">
+  <div class="schedule-wrap">
+    <div style="text-align: center;">
+      <div class="section-eyebrow"><span class="label">Four Days at Camp</span></div>
+      <h2 class="section-heading">The <em>Schedule</em></h2>
+    </div>
+
+    <div class="day-tabs">
+      <button class="day-tab active" data-day="1">Thursday</button>
+      <button class="day-tab" data-day="2">Friday</button>
+      <button class="day-tab" data-day="3">Saturday</button>
+      <button class="day-tab" data-day="4">Sunday</button>
+    </div>
+
+    <div class="day-panel active" data-panel="1">
+      <div class="schedule-row">
+        <div class="schedule-time">5:00 — 7:30 PM</div>
+        <div class="schedule-title">Arrival & Registration<em>Welcome to camp</em></div>
+        <div class="schedule-desc">Check in, settle into your dorm, meet the team you'll spend four days alongside.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">8:00 — 9:00 PM</div>
+        <div class="schedule-title">Operation: Know Yuh Neighbor<em>Moderator: Sis. Breannah Edwards</em></div>
+        <div class="schedule-desc">An ice-breaker built on the truth that fellowship is not optional — it is foundational.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">9:00 — 11:00 PM</div>
+        <div class="schedule-title">First Flame Worship Service<em>Moderator: Min. Derron Munroe</em></div>
+        <div class="schedule-desc"><strong>Speaker:</strong> Student Pastor Joshua Glaboon Thomas. Consecration, opening prayer, scripture, greetings, praise & worship — followed by the opening message of the retreat.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">After Service</div>
+        <div class="schedule-title">House Meeting & Instructions<em>For the day ahead</em></div>
+        <div class="schedule-desc">Each house gathers briefly with their captains before lights out.</div>
+      </div>
+    </div>
+
+    <div class="day-panel" data-panel="2">
+      <div class="schedule-row">
+        <div class="schedule-time">6:00 — 6:45 AM</div>
+        <div class="schedule-title">Team Exercise<em>Wake the body, ready the spirit</em></div>
+        <div class="schedule-desc">Morning movement before the Caribbean heat sets in.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">7:00 — 7:30 AM</div>
+        <div class="schedule-title">Ablution<em>Personal preparation</em></div>
+        <div class="schedule-desc">Wash, dress, ready yourself for the day.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">7:30 — 9:00 AM</div>
+        <div class="schedule-title">Breakfast</div>
+        <div class="schedule-desc">Eat together. The dining hall is where many deep conversations begin.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">9:00 — 9:30 AM</div>
+        <div class="schedule-title">Devotional Activities<em>Facilitator: Sis. Jovian Jones</em></div>
+        <div class="schedule-desc">Consecration, opening prayer, scripture reading, praise and worship.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">10:00 — 10:45 AM</div>
+        <div class="schedule-title">Bible Study<em>The Word, opened together</em></div>
+        <div class="schedule-desc">A guided study to ground the day's theme in scripture.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">11:00 — 11:50 AM</div>
+        <div class="schedule-title">Financial Seminar<em>Presenter: Bishop J. Small</em></div>
+        <div class="schedule-desc">Practical biblical stewardship — managing what God has entrusted to you.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">12:05 — 1:00 PM</div>
+        <div class="schedule-title">Lunch</div>
+        <div class="schedule-desc">Refuel before the afternoon's competition.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">1:00 — 4:00 PM</div>
+        <div class="schedule-title">Sports Competitions<em>House vs. House</em></div>
+        <div class="schedule-desc">Soldiers, Champions, and Ambassadors face off. Earn points toward the Pineapple Awards.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">4:00 — 6:00 PM</div>
+        <div class="schedule-title">House Activities<em>With your captains</em></div>
+        <div class="schedule-desc">Bond, prepare your house's presentation, pray together.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">7:30 — 11:00 PM</div>
+        <div class="schedule-title">Evening Service<em>Moderator: Rev. Elsisco Smith</em></div>
+        <div class="schedule-desc"><strong>Speaker:</strong> Bishop Stanley Ivey. The flagship evening service — extended worship and a deep teaching from the Word.</div>
+      </div>
+    </div>
+
+    <div class="day-panel" data-panel="3">
+      <div class="schedule-row">
+        <div class="schedule-time">7:00 — 8:00 AM</div>
+        <div class="schedule-title">Gender Devotions<em>Brothers and sisters, separately</em></div>
+        <div class="schedule-desc">Opening prayer, scripture, encouragement — assigned across the houses for shared leadership.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">8:00 — 9:00 AM</div>
+        <div class="schedule-title">Breakfast</div>
+        <div class="schedule-desc">Eat well — there's a long day ahead.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">9:00 — 9:50 AM</div>
+        <div class="schedule-title">Departure to Ocho Rios<em>Buses load early</em></div>
+        <div class="schedule-desc">A travel day — but not a day off. The mission travels with us.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">10:00 AM — 12:00 PM</div>
+        <div class="schedule-title">Evangelism Walk<em>Streets of Ocho Rios</em></div>
+        <div class="schedule-desc">We carry the gospel into the community. Tracts, conversation, prayer, presence.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">12:00 — 4:00 PM</div>
+        <div class="schedule-title">Beach<em>Rest, rejoice, refresh</em></div>
+        <div class="schedule-desc">Lunch on the shore. Time in the water. The Caribbean as a gift.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">5:30 PM</div>
+        <div class="schedule-title">Return to Campsite</div>
+        <div class="schedule-desc">Back to Golden Grove for the evening's celebration.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">5:30 — 7:30 PM</div>
+        <div class="schedule-title">Night's Preparation<em>Red carpet ready</em></div>
+        <div class="schedule-desc">Dress your best — the Pineapple Awards are tonight.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">8:00 — 9:00 PM</div>
+        <div class="schedule-title">The Pineapple Awards<em>Moderators: Sis. Teja-Jae Rose & Bro. Cadell Green</em></div>
+        <div class="schedule-desc"><strong>Red carpet entry · Theme illumination by Mr. Reniel Clarke · Old time hymn sing-off · House presentations from Soldiers (Chorale), Champions (Choir Song) & Ambassadors (Drama) · 90 Days Challenge Awards · Crowning of the Pineapple King & Queen.</strong></div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">9:30 PM Until</div>
+        <div class="schedule-title">Praise Party<em>Until the Spirit moves us home</em></div>
+        <div class="schedule-desc">Worship and dance — the celebration runs late into the Saturday night.</div>
+      </div>
+    </div>
+
+    <div class="day-panel" data-panel="4">
+      <div class="schedule-row">
+        <div class="schedule-time">7:00 — 7:25 AM</div>
+        <div class="schedule-title">Wake Up</div>
+        <div class="schedule-desc">A gentle final morning. Pack, breathe, prepare your heart.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">7:30 — 8:50 AM</div>
+        <div class="schedule-title">Breakfast</div>
+        <div class="schedule-desc">Last meal at camp. Trade contact info, share testimonies.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">9:00 — 9:50 AM</div>
+        <div class="schedule-title">Final Worship Service<em>Moderator: Bro. Oran Davidson</em></div>
+        <div class="schedule-desc">Consecration, opening prayer, scripture, praise & worship — closing word and sending.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">10:00 — 10:30 AM</div>
+        <div class="schedule-title">The Lord's Supper<em>Communion together</em></div>
+        <div class="schedule-desc">We close the retreat at the Lord's table — together, one body, sent out.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">10:35 — 11:50 AM</div>
+        <div class="schedule-title">Departure</div>
+        <div class="schedule-desc">Pack up, load buses, hugs in the parking lot. Until next year.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">12:05 — 1:00 PM</div>
+        <div class="schedule-title">Lunch on the Road<em>For travelers</em></div>
+        <div class="schedule-desc">Final meal provided as you head home.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOUSES ============ -->
+<section class="houses-section" id="houses">
+  <div style="text-align: center;">
+    <div class="section-eyebrow"><span class="label">Three Houses, One Body</span></div>
+    <h2 class="section-heading">The <em>Houses</em></h2>
+  </div>
+  <p class="projects-intro">Every yammite is placed into one of three houses for the duration of the retreat. Each house competes, presents, prays, and celebrates together. The captains lead.</p>
+
+  <div class="houses-grid">
+    <div class="house-card">
+      <svg class="house-icon" viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M25 5 L40 12 L40 26 Q40 38 25 45 Q10 38 10 26 L10 12 Z"/>
+        <path d="M18 24 L23 29 L33 19" stroke-width="2"/>
+      </svg>
+      <div class="house-num">House 01</div>
+      <h3 class="house-name">God's Gifted <span>Soldiers</span></h3>
+      <p class="house-presentation">Saturday Awards Presentation: <strong>Chorale Speech</strong></p>
+      <div class="house-captains">
+        <span class="house-captains-label">Captains</span>
+        Emile & Brittny
+      </div>
+    </div>
+    <div class="house-card">
+      <svg class="house-icon" viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="25" cy="20" r="11"/>
+        <path d="M14 20 Q14 30 18 35 L18 42 L32 42 L32 35 Q36 30 36 20"/>
+        <path d="M14 17 L8 17 Q8 23 14 25 M36 17 L42 17 Q42 23 36 25"/>
+      </svg>
+      <div class="house-num">House 02</div>
+      <h3 class="house-name">God's Gifted <span>Champions</span></h3>
+      <p class="house-presentation">Saturday Awards Presentation: <strong>Choir Song</strong></p>
+      <div class="house-captains">
+        <span class="house-captains-label">Captains</span>
+        Samuel & Lesia
+      </div>
+    </div>
+    <div class="house-card">
+      <svg class="house-icon" viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="25" cy="25" r="18"/>
+        <path d="M7 25 L43 25 M25 7 Q15 25 25 43 M25 7 Q35 25 25 43"/>
+      </svg>
+      <div class="house-num">House 03</div>
+      <h3 class="house-name">God's Gifted <span>Ambassadors</span></h3>
+      <p class="house-presentation">Saturday Awards Presentation: <strong>Drama</strong></p>
+      <div class="house-captains">
+        <span class="house-captains-label">Captains</span>
+        Anthony & Sudeen
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section class="projects-section" id="projects">
+  <div style="text-align: center;">
+    <div class="section-eyebrow"><span class="label">Year-Round Ministry</span></div>
+    <h2 class="section-heading">More than <em>a weekend</em></h2>
+  </div>
+  <p class="projects-intro">The retreat is the gathering point — but the National Young Adult Ministry is at work all year long.</p>
+
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-num">Project 01</div>
+      <h4 class="project-name">90 Days Challenge</h4>
+      <p class="project-desc">A virtual experience designed to build spiritual discipline through daily devotionals, fellowship, and prayer over 90 days.</p>
+    </div>
+    <div class="project-card">
+      <div class="project-num">Project 02</div>
+      <h4 class="project-name">Fast Walk Pray Play</h4>
+      <p class="project-desc">A dynamic day of evangelism that combines physical fitness, prayer, and fun-filled team games to strengthen unity and faith across Jamaica.</p>
+    </div>
+    <div class="project-card">
+      <div class="project-num">Project 03</div>
+      <h4 class="project-name">YAM Excursion</h4>
+      <p class="project-desc">A bonding experience where youth travel together to visit a local church, engage in worship, and enjoy a local fun spot.</p>
+    </div>
+    <div class="project-card">
+      <div class="project-num">Project 04</div>
+      <h4 class="project-name">Street Evangelism</h4>
+      <p class="project-desc">Young adults responding to the call to spread the gospel across selected communities throughout the year.</p>
+    </div>
+    <div class="project-card">
+      <div class="project-num">Project 05</div>
+      <h4 class="project-name">All Night Prayer</h4>
+      <p class="project-desc">A powerful night of intercessory prayer, worship, and breakthrough together as a national body.</p>
+    </div>
+    <div class="project-card">
+      <div class="project-num">Project 06</div>
+      <h4 class="project-name">Hospital Visit</h4>
+      <p class="project-desc">A compassionate outreach where youth minister to the sick and elderly through prayer, gifts, and words of encouragement.</p>
+    </div>
+    <div class="project-card">
+      <div class="project-num">Project 07</div>
+      <h4 class="project-name">Smoothie Booth</h4>
+      <p class="project-desc">An entrepreneurial booth at the National Youth Congress promoting health and fundraising for the ministry.</p>
+    </div>
+    <div class="project-card">
+      <div class="project-num">Project 08</div>
+      <h4 class="project-name">Yadel Home Visit</h4>
+      <p class="project-desc">Supporting the children at Yadel Girl's Home through visits, gifts, and presence.</p>
+    </div>
+    <div class="project-card">
+      <div class="project-num">Project 09</div>
+      <h4 class="project-name">Church Project</h4>
+      <p class="project-desc">A hands-on initiative where youth contribute to meaningful improvements within local church communities.</p>
+    </div>
+    <div class="project-card">
+      <div class="project-num">Project 10</div>
+      <h4 class="project-name">Youth Retreat</h4>
+      <p class="project-desc">The four-day national gathering — what you're registering for now.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="testimonials-section">
+  <div style="text-align: center;">
+    <div class="section-eyebrow"><span class="label">Voices from the Camp</span></div>
+    <h2 class="section-heading">What past <em>yammites</em> say</h2>
+  </div>
+
+  <div class="testimonials-grid">
+    <div class="testimonial">
+      <p>My experience at the National Youth Retreat was life-changing. The worship services were dynamic, with an atmosphere charged with the presence of God. In the prayer room, I found a place to lock away with God on a different level. I encountered God in a fresh way and left with a renewed passion for my walk with Him.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">SD</div>
+        <div>
+          <div class="testimonial-name">Shamere Darlington</div>
+          <div class="testimonial-meta">Past Attendee</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <p>I attended my first YAM Retreat in 2023, and it was truly a spirit-filled experience. The plenary sessions tackled taboo topics with much clarity. But what made it special was the fellowship — my house members were cooperative, full of vibes, and made the whole experience unforgettable.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">BE</div>
+        <div>
+          <div class="testimonial-name">Breannah Edwards</div>
+          <div class="testimonial-meta">Past Attendee · 2023</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SIGNUP ============ -->
+<section class="signup-section" id="signup">
+  <div class="signup-grid">
+    <div class="signup-info">
+      <div class="section-eyebrow" style="text-align: left;"><span class="label">Register</span></div>
+      <h2 style="font-family: 'Anton', sans-serif; font-size: clamp(2.5rem, 5vw, 4.25rem); text-transform: uppercase; color: var(--ink); line-height: 0.95; margin-bottom: 2rem; letter-spacing: 0.005em;">Save your <em style="font-family: 'Fraunces', serif; font-style: italic; font-weight: 400; color: var(--gold); text-transform: none;">seat</em>.</h2>
+      <p>Registration is open for all young adults of the New Testament Church of God. Lodging at Golden Grove Campsite, all meals, and the Ocho Rios excursion are included.</p>
+      <ul class="info-list">
+        <li><strong>When</strong><span>August 7 – 10, 2025 · Thursday – Sunday</span></li>
+        <li><strong>Where</strong><span>Golden Grove Campsite, Jamaica</span></li>
+        <li><strong>Theme</strong><span>God's Gifted Youths Growing & Going with the Gospel</span></li>
+        <li><strong>Theme Song</strong><span>"Go In Your Strength"</span></li>
+        <li><strong>Bring</strong><span>Modest clothing, beach gear for Saturday, Bible & journal</span></li>
+        <li><strong>Note</strong><span>No cross-gender dorm visits. Phones away during sessions. Be on time.</span></li>
+      </ul>
+    </div>
+
+    <div class="form-wrap">
+      <div class="form-frame-header">
+        <span class="form-frame-label">Registration</span>
+        <span class="form-frame-meta">Powered by Google Forms · Secure</span>
+      </div>
+      <div class="form-iframe-container">
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSct4iYGWI4T-uSr1D9ACS7V48t6Hby6_3T8iWv0P72EJcL5_Q/viewform?embedded=true"
+          width="100%"
+          height="1795"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          title="National Youth Retreat 2025 Registration">
+          Loading registration form…
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MAILING LIST ============ -->
+<section class="mailing-section">
+  <h3>For more info, join our <em>mailing list</em></h3>
+  <p>Sign up with your email address to receive news and updates.</p>
+  <form class="mailing-form" onsubmit="handleMail(event)">
+    <input type="text" name="firstName" placeholder="First Name" required>
+    <input type="text" name="lastName" placeholder="Last Name" required>
+    <input type="email" name="email" placeholder="Email Address" required>
+    <button type="submit">Sign Up →</button>
+  </form>
+  <p class="mailing-success" id="mailSuccess">Thank you! You're on the list.</p>
+  <p class="mailing-privacy">We respect your privacy</p>
+</section>
+
+<!-- ============ LEADERSHIP ============ -->
+<section class="leadership-section">
+  <div style="text-align: center;">
+    <div class="section-eyebrow"><span class="label">The Team</span></div>
+    <h2 class="section-heading"><em>NYAM</em> Leadership</h2>
+  </div>
+
+  <div class="leadership-grid">
+    <div class="leader"><div class="leader-avatar">MT</div><div class="leader-name">Rev. Marlon Thomas</div><div class="leader-role">Director</div></div>
+    <div class="leader"><div class="leader-avatar">PC</div><div class="leader-name">Patrick Clarke</div><div class="leader-role">Asst. Director</div></div>
+    <div class="leader"><div class="leader-avatar">PG</div><div class="leader-name">Philicia Grant</div><div class="leader-role">Secretary</div></div>
+    <div class="leader"><div class="leader-avatar">VJ</div><div class="leader-name">Veveca James-Holness</div><div class="leader-role">PRO</div></div>
+    <div class="leader"><div class="leader-avatar">NS</div><div class="leader-name">Nissia Sutherland</div><div class="leader-role">Treasurer</div></div>
+    <div class="leader"><div class="leader-avatar">ES</div><div class="leader-name">Rev. Elsisco Smith</div><div class="leader-role">Board</div></div>
+    <div class="leader"><div class="leader-avatar">RC</div><div class="leader-name">Reneil Clarke</div><div class="leader-role">Board</div></div>
+    <div class="leader"><div class="leader-avatar">OD</div><div class="leader-name">Oran Davidson</div><div class="leader-role">Board</div></div>
+    <div class="leader"><div class="leader-avatar">MB</div><div class="leader-name">Maurice Bailey</div><div class="leader-role">Board</div></div>
+    <div class="leader"><div class="leader-avatar">CG</div><div class="leader-name">Cadell Green</div><div class="leader-role">Board</div></div>
+    <div class="leader"><div class="leader-avatar">TS</div><div class="leader-name">Terry Smith</div><div class="leader-role">Planning</div></div>
+    <div class="leader"><div class="leader-avatar">MG</div><div class="leader-name">Melissa Gordon</div><div class="leader-role">Planning</div></div>
+    <div class="leader"><div class="leader-avatar">SW</div><div class="leader-name">Sashimo Wallace</div><div class="leader-role">Planning</div></div>
+    <div class="leader"><div class="leader-avatar">CT</div><div class="leader-name">Clovaline Thomas-Martin</div><div class="leader-role">Planning</div></div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer id="contact">
+  <div class="contact-mark">
+    <h2>Connect <em>with us</em></h2>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-block">
+      <h5>Reach Out</h5>
+      <p class="contact-tagline">Questions, sponsorship, or want to bring your church group? We're glad to hear from you.</p>
+    </div>
+    <div class="contact-block">
+      <h5>General</h5>
+      <a href="mailto:nyam@ntcog.org">nyam@ntcog.org</a>
+      <p>Mon – Fri · 9 AM – 5 PM</p>
+    </div>
+    <div class="contact-block">
+      <h5>Registration</h5>
+      <a href="mailto:retreat@ntcog.org">retreat@ntcog.org</a>
+      <a href="mailto:groups@ntcog.org">groups@ntcog.org</a>
+      <p>Group rates for churches</p>
+    </div>
+    <div class="contact-block">
+      <h5>Camp</h5>
+      <p>Golden Grove Campsite<br>Jamaica</p>
+      <a href="#">Get directions →</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>#NationalYouthRetreat</span>
+    <span>NYAM · NTCOG Jamaica · 2025</span>
+    <span>"I have fought a good fight, I have kept the faith." — 2 Tim. 4:7</span>
+  </div>
+</footer>
+
+<script>
+  // Day tab switching
+  document.querySelectorAll('.day-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const day = tab.dataset.day;
+      document.querySelectorAll('.day-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.day-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelector(`.day-panel[data-panel="${day}"]`).classList.add('active');
+    });
+  });
+
+  // Close mobile nav on link click
+  document.querySelectorAll('nav ul a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.querySelector('nav ul').classList.remove('open');
+    });
+  });
+
+  // Mailing list (display-only)
+  function handleMail(e) {
+    e.preventDefault();
+    document.getElementById('mailSuccess').classList.add('show');
+    e.target.reset();
+    setTimeout(() => document.getElementById('mailSuccess').classList.remove('show'), 5000);
+  }
+</script>
+
+</body>
+</html>
